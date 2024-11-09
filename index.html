@@ -1,0 +1,16 @@
+<html>
+<body>
+  <canvas id="glcanvas" width="0" height="0"></canvas>
+  <script>
+    var canvas = document.getElementById("glcanvas");
+    // иначе первая строчка будет смещена на символ
+    canvas.style.display = "none";
+    var gl = canvas.getContext("experimental-webgl");
+    var dbgRenderInfo = gl.getExtension("WEBGL_debug_renderer_info");
+    var gpu = gl.getParameter(dbgRenderInfo.UNMASKED_RENDERER_WEBGL);
+
+    document.write("CPU threads: " + navigator.hardwareConcurrency + " threads<br>");
+    document.write("RAM: " + navigator.deviceMemory + " GB<br>");
+    document.write("GPU model: " + gpu + "<br>");
+  </script>
+</body>
